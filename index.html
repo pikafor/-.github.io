@@ -720,6 +720,62 @@
     </div>
   </section>
 
+    <!-- ========== КАРТА С МЕТКОЙ ========== -->
+    <section id="map-section" class="map-section">
+        <div class="container">
+            <h2 class="fade-in">Как нас найти</h2>
+            <p class="section-subhead fade-in">Курганная улица, 106 — ждём в гости</p>
+            
+            <div class="map-container fade-in">
+                <!-- ИСПРАВЛЕННАЯ КАРТА С МЕТКОЙ -->
+                <iframe src="https://yandex.ru/map-widget/v1/?lang=ru_RU&scroll=true&source=constructor-api&um=constructor%3A2c9224ddcfa49014c9335334c320f10ac69767347fde82b34938be5374693fb5"
+                        width="100%" 
+                        height="450" 
+                        frameborder="0" 
+                        allowfullscreen="true"  
+                        style="display: block; width: 100%; height: 450px;">
+                </iframe>
+            </div>
+            
+            <!-- Адрес текстом под картой -->
+            <p style="text-align: center; margin-top: 20px; color: var(--text-med);">
+                <i class="fas fa-map-pin" style="color: var(--honey); margin-right: 8px;"></i>
+                г. Ростов-на-Дону, мкр. Новое Поселение, Курганная улица, 106
+            </p>
+        </div>
+    </section>
+
+    <style>
+        .map-section {
+            padding: 100px 0;
+            background: var(--bg-cave);
+            position: relative;
+            z-index: 10;
+        }
+        
+        .map-container {
+            border-radius: 28px;
+            overflow: hidden;
+            border: 3px solid var(--honey);
+            box-shadow: var(--shadow-cave);
+            transition: transform 0.3s ease;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .map-container:hover {
+            transform: scale(1.01);
+            box-shadow: 0 20px 40px rgba(201,138,30,0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .map-container iframe {
+                height: 300px;
+            }
+        }
+    </style>
+    <!-- ========== КОНЕЦ КАРТЫ ========== -->
+
   <!-- Футер -->
   <footer id="contact" class="footer">
     <div class="container">
@@ -775,4 +831,3 @@
   </script>
 </body>
 </html>
-
