@@ -1117,6 +1117,60 @@
             border-left: none;
             padding-left: 0;
         }
+        
+        /* ========== МОБИЛЬНЫЙ СКРОЛЛ ТАРИФОВ (ПАЛЬЦЕМ) ========== */
+        @media (max-width: 768px) {
+            .tariffs-wrapper {
+                position: relative;
+                margin: 40px 0;
+            }
+            
+            .tariffs-slider {
+                overflow-x: auto;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch;
+                scroll-snap-type: x mandatory;
+                padding: 15px 5px 25px;
+                margin: 0 -20px; /* компенсация padding контейнера */
+                padding-left: 20px;
+                padding-right: 20px;
+                /* Стилизация скроллбара */
+                scrollbar-width: thin;
+                scrollbar-color: var(--accent) var(--bg-glass);
+            }
+            
+            .tariffs-slider::-webkit-scrollbar {
+                height: 4px;
+            }
+            
+            .tariffs-slider::-webkit-scrollbar-track {
+                background: var(--bg-glass);
+                border-radius: 10px;
+            }
+            
+            .tariffs-slider::-webkit-scrollbar-thumb {
+                background: var(--accent);
+                border-radius: 10px;
+            }
+            
+            .tariffs-track {
+                display: flex;
+                gap: 16px;
+                width: max-content;
+                transform: none !important; /* отключаем JS трансформацию */
+                transition: none;
+            }
+            
+            .tariff-card {
+                flex: 0 0 280px; /* фиксированная ширина карточки на мобилках */
+                scroll-snap-align: start;
+            }
+            
+            /* Прячем кнопки слайдера на мобилках */
+            .slider-btn {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1390,7 +1444,7 @@
     <!-- Скрипты -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="https://www.vantajs.com/dist/vanta.net.min.js"></script>
-    <script>
+<script>
         // Инициализация Vanta NET фона
         VANTA.NET({
           el: "#vanta-bg",
@@ -1442,85 +1496,103 @@
                 });
             });
 
-            // Слайдер тарифов
-            const track = document.getElementById('tariffsTrack');
-            const prevBtn = document.getElementById('prevTariffBtn');
-            const nextBtn = document.getElementById('nextTariffBtn');
-            
-            if (track && prevBtn && nextBtn) {
+            // Функция инициализации слайдера тарифов (с поддержкой ресайза)
+            function initTariffSlider() {
+                const track = document.getElementById('tariffsTrack');
+                const prevBtn = document.getElementById('prevTariffBtn');
+                const nextBtn = document.getElementById('nextTariffBtn');
+                
+                if (!track || !prevBtn || !nextBtn) return;
+
+                // Определяем, мобилка или нет
+                const isMobile = window.innerWidth <= 768;
+                
+                if (isMobile) {
+                    // Мобильный режим: скрываем кнопки, убираем трансформацию
+                    prevBtn.style.display = 'none';
+                    nextBtn.style.display = 'none';
+                    track.style.transform = 'none';
+                    track.style.transition = 'none';
+                    return;
+                }
+
+                // Десктопный режим: показываем кнопки, активируем слайдер
+                prevBtn.style.display = 'flex';
+                nextBtn.style.display = 'flex';
+                track.style.transition = 'transform 0.5s ease';
+                
                 const cards = Array.from(track.children);
                 let currentIndex = 0;
                 let cardWidth = 0;
-                let gap = 24;
+                const gap = 24;
 
-                // Функция обновления позиции
                 function updateSlider() {
                     if (!cards.length || cardWidth === 0) return;
-                    
-                    // Убедимся, что currentIndex в допустимых пределах
                     const maxIndex = getMaxIndex();
-                    if (currentIndex > maxIndex) {
-                        currentIndex = maxIndex;
-                    }
-                    
+                    if (currentIndex > maxIndex) currentIndex = maxIndex;
                     const translateX = currentIndex * (cardWidth + gap);
                     track.style.transform = `translateX(-${translateX}px)`;
                 }
 
-                // Получение максимального индекса
                 function getMaxIndex() {
                     if (!cards.length || cardWidth === 0) return 0;
-                    
                     const wrapperWidth = track.parentElement.offsetWidth;
                     const visibleCards = Math.floor((wrapperWidth + gap) / (cardWidth + gap));
                     return Math.max(0, cards.length - visibleCards);
                 }
 
-                // Обновление ширины карточки
                 function updateCardWidth() {
                     if (cards.length > 0) {
                         cardWidth = cards[0].offsetWidth;
                     }
                 }
 
-                // Обработчик следующей кнопки
-                nextBtn.addEventListener('click', function() {
+                // Удаляем старые обработчики и вешаем новые
+                const newPrev = prevBtn.cloneNode(true);
+                const newNext = nextBtn.cloneNode(true);
+                prevBtn.parentNode.replaceChild(newPrev, prevBtn);
+                nextBtn.parentNode.replaceChild(newNext, nextBtn);
+                
+                newPrev.addEventListener('click', () => {
                     const maxIndex = getMaxIndex();
-                    if (currentIndex < maxIndex) {
-                        currentIndex++;
-                    } else {
-                        currentIndex = 0; // Зацикливание
-                    }
+                    currentIndex = currentIndex > 0 ? currentIndex - 1 : maxIndex;
+                    updateSlider();
+                });
+                
+                newNext.addEventListener('click', () => {
+                    const maxIndex = getMaxIndex();
+                    currentIndex = currentIndex < maxIndex ? currentIndex + 1 : 0;
                     updateSlider();
                 });
 
-                // Обработчик предыдущей кнопки
-                prevBtn.addEventListener('click', function() {
-                    const maxIndex = getMaxIndex();
-                    if (currentIndex > 0) {
-                        currentIndex--;
-                    } else {
-                        currentIndex = maxIndex; // Зацикливание
-                    }
-                    updateSlider();
-                });
-
-                // Обработчик изменения размера окна
-                window.addEventListener('resize', function() {
+                // Обновление при ресайзе
+                function onResize() {
                     updateCardWidth();
                     const maxIndex = getMaxIndex();
-                    if (currentIndex > maxIndex) {
-                        currentIndex = maxIndex;
-                    }
+                    if (currentIndex > maxIndex) currentIndex = maxIndex;
                     updateSlider();
-                });
+                }
+                
+                window.addEventListener('resize', onResize);
 
                 // Инициализация
-                setTimeout(function() {
+                setTimeout(() => {
                     updateCardWidth();
                     updateSlider();
                 }, 100);
             }
+
+            // Запускаем слайдер при загрузке
+            initTariffSlider();
+
+            // Перезапускаем слайдер при изменении размера окна (с задержкой для избежания лишних вызовов)
+            let resizeTimer;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
+                    initTariffSlider();
+                }, 150);
+            });
 
             // FAQ аккордеон
             document.querySelectorAll('.faq-question').forEach(q => {
