@@ -127,7 +127,7 @@
         }
 
         h2 {
-            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-size: clamp(1.7rem, 5vw, 3.5rem);
             margin-bottom: 0.8em;
             position: relative;
             display: inline-block;
@@ -1109,6 +1109,14 @@
         @media (min-width: 1101px) {
             .burger { display: none; }
         }
+        /* Фикс для центрирования заголовка в секции брони */
+        .booking-section h2 {
+            display: block !important;
+            width: 100%;
+            text-align: center;
+            border-left: none;
+            padding-left: 0;
+        }
     </style>
 </head>
 <body>
@@ -1156,7 +1164,7 @@
     <main class="container">
         <!-- HERO -->
         <section class="hero" id="hero">
-            <div class="hero-badge">УЛ. МЕШКОВА · КРУГЛОСУТОЧНО</div>
+            <div class="hero-badge">УЛ. КУРГАННАЯ · КРУГЛОСУТОЧНО</div>
             <h1>БЕРЛОГА</h1>
             <p class="subhead">RTX 4060/4070 · 240 Гц · Дикое железо в центре</p>
             <div class="hero-stats">
