@@ -4,12 +4,82 @@
     <meta charset="UTF-8">
     <!-- Адаптивный viewport: на мобилах масштабируется, но контент не съезжает -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Берлога · компьютерный клуб</title>
-    <!-- Шрифты -->
+    
+    <!-- ⚡ SEO: Ключевые мета-теги ⚡ -->
+    <title>Берлога — компьютерный клуб в Ростове-на-Дону (RTX 4070, 240 Гц, 24/7)</title>
+    <meta name="description" content="Компьютерный клуб «Берлога» в Ростове-на-Дону: мощные ПК (RTX 4060/4070), мониторы 240 Гц, ночные тарифы. Бронь онлайн, скидки студентам, киберспортивная атмосфера. Работаем круглосуточно.">
+    <meta name="keywords" content="компьютерный клуб Ростов-на-Дону, игровой клуб, берлога ростов, пк клуб ростов, rtx 4070, киберклуб, аренда пк ростов, компьютерный клуб Мечникова">
+    <meta name="author" content="Берлога">
+    <meta name="robots" content="index, follow">
+    <meta name="geo.region" content="RU-ROS">
+    <meta name="geo.placename" content="Ростов-на-Дону">
+    <meta name="geo.position" content="47.222078;39.720349">
+    <meta name="ICBM" content="47.222078, 39.720349">
+    <!-- Яндекс.Вебмастер и Google верификация (можно заменить на свои) -->
+    <meta name="yandex-verification" content="ваш_код">
+    <meta name="google-site-verification" content="ваш_код">
+    
+    <!-- Open Graph (соцсети) -->
+    <meta property="og:title" content="Берлога — компьютерный клуб в Ростове-на-Дону">
+    <meta property="og:description" content="Дикое железо RTX 4070, 240 Гц, снэк-зона. Работаем 24/7. Забронируйте место онлайн!">
+    <meta property="og:image" content="https://optim.tildacdn.com/tild3166-3833-4036-b231-613337323037/-/format/webp/IMG_3438.jpg.webp">
+    <meta property="og:url" content="https://berloga-rostov.ru">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    
+    <!-- Favicon (замените на свои файлы) -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    
+    <!-- Canonical URL (избегаем дублей) -->
+    <link rel="canonical" href="https://berloga-rostov.ru">
+    
+    <!-- Шрифты и иконки (оптимизация: предзагрузка шрифтов) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Микроразметка JSON-LD (LocalBusiness) для Google и Яндекс -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "InternetCafe",
+      "name": "Компьютерный клуб Берлога",
+      "image": "https://optim.tildacdn.com/tild3166-3833-4036-b231-613337323037/-/format/webp/IMG_3438.jpg.webp",
+      "url": "https://berloga-rostov.ru",
+      "telephone": "+7-495-123-45-67",
+      "email": "info@berloga.ru",
+      "description": "Компьютерный клуб с мощными ПК (RTX 4060/4070), мониторами 240 Гц, работает круглосуточно. Удобное расположение в Ростове-на-Дону на ул. Мечникова.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ростов-на-Дону",
+        "streetAddress": "ул. Мечникова, 31/106",
+        "postalCode": "344000",
+        "addressCountry": "RU"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "47.222078",
+        "longitude": "39.720349"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "00:00",
+          "closes": "23:59"
+        }
+      ],
+      "priceRange": "120₽ - 1200₽",
+      "sameAs": [
+        "https://vk.com/berloga_rostov",
+        "https://t.me/berloga_rostov",
+        "https://discord.gg/berloga"
+      ]
+    }
+    </script>
+    
     <style>
         /* ---------- СБРОС И ПЕРЕМЕННЫЕ ---------- */
         * {
@@ -1012,7 +1082,7 @@
             transform: translateY(-3px);
         }
 
-        /* ========== АДАПТИВ (ДОБАВЛЯЕМ САМЫЕ НЕОБХОДИМЫЕ ПРАВКИ, НЕ УДАЛЯЯ СТИЛИ) ========== */
+        /* ========== АДАПТИВ ========== */
         @media screen and (max-width: 1100px) {
             .nav-links { 
                 display: none; 
@@ -1071,55 +1141,11 @@
                 flex: 0 0 100%;
             }
             .booking-section { padding: 40px 20px; }
-            /* Добавляем адаптив для карты */
             .map { height: 300px; }
-            /* Уменьшаем отступы в герое */
             .hero { padding: 50px 0 80px; }
             .hero-stats { gap: 30px; }
             .stat-num { font-size: 2.2rem; }
-        }
-
-        @media (max-width: 600px) {
-            .gallery-grid { grid-template-columns: 1fr; }
-            .games-grid { grid-template-columns: 1fr; }
-            /* Делаем кнопки более удобными */
-            .btn { width: 100%; justify-content: center; }
-            /* Уменьшаем размер шрифта для подзаголовков */
-            .subhead { font-size: 1rem; }
-            /* Корректируем padding для карточек */
-            .glass-card { padding: 25px 20px; }
-            .tariff-card { padding: 20px; }
-            /* Сдвигаем кнопки слайдера ближе */
-            .prev-btn { left: -5px; }
-            .next-btn { right: -5px; }
-        }
-
-        @media (max-width: 480px) {
-            h2 { padding-left: 20px; }
-            .hero-badge { font-size: 0.75rem; padding: 4px 16px; }
-            .stat-item { min-width: 70px; }
-            .stat-label { font-size: 0.7rem; }
-            .map { height: 250px; }
-            .footer-grid { gap: 30px; }
-            .footer-logo { font-size: 1.6rem; }
-            .social-links a { font-size: 1.5rem; }
-        }
-
-        /* Обеспечиваем, что навигация не ломается на всех экранах */
-        @media (min-width: 1101px) {
-            .burger { display: none; }
-        }
-        /* Фикс для центрирования заголовка в секции брони */
-        .booking-section h2 {
-            display: block !important;
-            width: 100%;
-            text-align: center;
-            border-left: none;
-            padding-left: 0;
-        }
-        
-        /* ========== МОБИЛЬНЫЙ СКРОЛЛ ТАРИФОВ (ПАЛЬЦЕМ) ========== */
-        @media (max-width: 768px) {
+            
             .tariffs-wrapper {
                 position: relative;
                 margin: 40px 0;
@@ -1131,10 +1157,9 @@
                 -webkit-overflow-scrolling: touch;
                 scroll-snap-type: x mandatory;
                 padding: 15px 5px 25px;
-                margin: 0 -20px; /* компенсация padding контейнера */
+                margin: 0 -20px;
                 padding-left: 20px;
                 padding-right: 20px;
-                /* Стилизация скроллбара */
                 scrollbar-width: thin;
                 scrollbar-color: var(--accent) var(--bg-glass);
             }
@@ -1157,19 +1182,52 @@
                 display: flex;
                 gap: 16px;
                 width: max-content;
-                transform: none !important; /* отключаем JS трансформацию */
+                transform: none !important;
                 transition: none;
             }
             
             .tariff-card {
-                flex: 0 0 280px; /* фиксированная ширина карточки на мобилках */
+                flex: 0 0 280px;
                 scroll-snap-align: start;
             }
             
-            /* Прячем кнопки слайдера на мобилках */
             .slider-btn {
                 display: none;
             }
+        }
+
+        @media (max-width: 600px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+            .games-grid { grid-template-columns: 1fr; }
+            .btn { width: 100%; justify-content: center; }
+            .subhead { font-size: 1rem; }
+            .glass-card { padding: 25px 20px; }
+            .tariff-card { padding: 20px; }
+            .prev-btn { left: -5px; }
+            .next-btn { right: -5px; }
+        }
+
+        @media (max-width: 480px) {
+            h2 { padding-left: 20px; }
+            .hero-badge { font-size: 0.75rem; padding: 4px 16px; }
+            .stat-item { min-width: 70px; }
+            .stat-label { font-size: 0.7rem; }
+            .map { height: 250px; }
+            .footer-grid { gap: 30px; }
+            .footer-logo { font-size: 1.6rem; }
+            .social-links a { font-size: 1.5rem; }
+        }
+
+        @media (min-width: 1101px) {
+            .burger { display: none; }
+        }
+        
+        .booking-section h2 {
+            display: block !important;
+            width: 100%;
+            text-align: center;
+            border-left: none;
+            padding-left: 0;
         }
     </style>
 </head>
@@ -1188,8 +1246,8 @@
     <!-- Навигация -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">
-                <img src="https://static.tildacdn.com/tild3735-6135-4337-a666-613139383237/Group_1321315100.svg" alt="Берлога" class="logo-img">
+            <a href="#" class="logo" aria-label="На главную">
+                <img src="https://static.tildacdn.com/tild3735-6135-4337-a666-613139383237/Group_1321315100.svg" alt="Логотип Берлога" class="logo-img" width="42" height="42">
                 БЕРЛОГА
             </a>
             <div class="nav-links" id="navLinks">
@@ -1202,14 +1260,14 @@
                 
                 <!-- Соцсети в навигации -->
                 <div class="nav-social">
-                    <a href="#" class="social-link"><i class="fab fa-vk"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                    <a href="https://vk.com/berloga_rostov" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="VK"><i class="fab fa-vk"></i></a>
+                    <a href="https://t.me/berloga_rostov" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="https://discord.gg/berloga" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i class="fab fa-discord"></i></a>
                 </div>
                 
                 <a href="#booking" class="cta-button">ЗАБРОНИРОВАТЬ</a>
             </div>
-            <div class="burger" id="burger">
+            <div class="burger" id="burger" aria-label="Меню">
                 <span></span><span></span><span></span>
             </div>
         </div>
@@ -1220,7 +1278,7 @@
         <section class="hero" id="hero">
             <div class="hero-badge">УЛ. МЕЧНИКОВА · КРУГЛОСУТОЧНО</div>
             <h1>БЕРЛОГА</h1>
-            <p class="subhead">RTX 4060/4070 · 240 Гц · Дикое железо в центре</p>
+            <p class="subhead">RTX 4060/4070 · 240 Гц · Дикое железо в центре Ростова-на-Дону</p>
             <div class="hero-stats">
                 <div class="stat-item"><span class="stat-num">240+</span> <span class="stat-label">Герц</span></div>
                 <div class="stat-item"><span class="stat-num">RTX</span> <span class="stat-label">40 серия</span></div>
@@ -1237,28 +1295,28 @@
                 <div class="glass-card">
                     <div class="glass-card-title">СТАНДАРТ</div>
                     <ul class="feature-list">
-                        <li><i class="fas fa-desktop"></i> 23.8" AOC 165 Гц</li>
-                        <li><i class="fas fa-microchip"></i> RTX 4060 / i5-12400F</li>
-                        <li><i class="fas fa-memory"></i> 16GB DDR4</li>
-                        <li><i class="fas fa-headphones"></i> HyperX Cloud II</li>
+                        <li><i class="fas fa-desktop" aria-hidden="true"></i> 23.8" AOC 165 Гц</li>
+                        <li><i class="fas fa-microchip" aria-hidden="true"></i> RTX 4060 / i5-12400F</li>
+                        <li><i class="fas fa-memory" aria-hidden="true"></i> 16GB DDR4</li>
+                        <li><i class="fas fa-headphones" aria-hidden="true"></i> HyperX Cloud II</li>
                     </ul>
                 </div>
                 <div class="glass-card">
                     <div class="glass-card-title">БУТКЕМП</div>
                     <ul class="feature-list">
-                        <li><i class="fas fa-desktop"></i> 24.5" AOC 240 Гц</li>
-                        <li><i class="fas fa-microchip"></i> RTX 4060 Ti / i5-13400F</li>
-                        <li><i class="fas fa-memory"></i> 32GB DDR4</li>
-                        <li><i class="fas fa-headphones"></i> HyperX Cloud II</li>
+                        <li><i class="fas fa-desktop" aria-hidden="true"></i> 24.5" AOC 240 Гц</li>
+                        <li><i class="fas fa-microchip" aria-hidden="true"></i> RTX 4060 Ti / i5-13400F</li>
+                        <li><i class="fas fa-memory" aria-hidden="true"></i> 32GB DDR4</li>
+                        <li><i class="fas fa-headphones" aria-hidden="true"></i> HyperX Cloud II</li>
                     </ul>
                 </div>
                 <div class="glass-card">
                     <div class="glass-card-title">СУПЕРБУН</div>
                     <ul class="feature-list">
-                        <li><i class="fas fa-desktop"></i> 27" 280 Гц</li>
-                        <li><i class="fas fa-microchip"></i> RTX 4070 / i7-13700F</li>
-                        <li><i class="fas fa-memory"></i> 32GB DDR5</li>
-                        <li><i class="fas fa-headphones"></i> Audeze Maxwell</li>
+                        <li><i class="fas fa-desktop" aria-hidden="true"></i> 27" 280 Гц</li>
+                        <li><i class="fas fa-microchip" aria-hidden="true"></i> RTX 4070 / i7-13700F</li>
+                        <li><i class="fas fa-memory" aria-hidden="true"></i> 32GB DDR5</li>
+                        <li><i class="fas fa-headphones" aria-hidden="true"></i> Audeze Maxwell</li>
                     </ul>
                 </div>
             </div>
@@ -1270,17 +1328,17 @@
             <p class="subhead">Комфорт и внимание к деталям</p>
             <div class="grid-3">
                 <div class="glass-card">
-                    <div class="advantage-icon"><i class="fas fa-wind"></i></div>
+                    <div class="advantage-icon"><i class="fas fa-wind" aria-hidden="true"></i></div>
                     <div class="glass-card-title" style="font-size: 1.5rem;">ЧИСТОТА</div>
                     <div>Ежедневная уборка и обработка периферии</div>
                 </div>
                 <div class="glass-card">
-                    <div class="advantage-icon"><i class="fas fa-crown"></i></div>
+                    <div class="advantage-icon"><i class="fas fa-crown" aria-hidden="true"></i></div>
                     <div class="glass-card-title" style="font-size: 1.5rem;">КОМФОРТ</div>
                     <div>Игровые кресла с поддержкой спины</div>
                 </div>
                 <div class="glass-card">
-                    <div class="advantage-icon"><i class="fas fa-utensils"></i></div>
+                    <div class="advantage-icon"><i class="fas fa-utensils" aria-hidden="true"></i></div>
                     <div class="glass-card-title" style="font-size: 1.5rem;">СНЭК-ЗОНА</div>
                     <div>Кофе, чай, снеки без отрыва от игры</div>
                 </div>
@@ -1293,15 +1351,15 @@
             <p class="subhead">Как выглядят наши залы</p>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://optim.tildacdn.com/tild3166-3833-4036-b231-613337323037/-/format/webp/IMG_3438.jpg.webp" alt="Игровой зал">
+                    <img src="https://optim.tildacdn.com/tild3166-3833-4036-b231-613337323037/-/format/webp/IMG_3438.jpg.webp" alt="Основной игровой зал Берлога" loading="lazy" width="600" height="450">
                     <div class="gallery-caption">Основной зал</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://optim.tildacdn.com/tild3931-3937-4337-a261-653833313564/-/format/webp/IMG_3440.jpg.webp" alt="Компьютеры">
+                    <img src="https://optim.tildacdn.com/tild3931-3937-4337-a261-653833313564/-/format/webp/IMG_3440.jpg.webp" alt="Игровые места с RTX 4070" loading="lazy" width="600" height="450">
                     <div class="gallery-caption">Игровые места</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://optim.tildacdn.com/tild6164-6463-4130-a631-643230663339/-/format/webp/IMG_3444.jpg.webp" alt="Турнир">
+                    <img src="https://optim.tildacdn.com/tild6164-6463-4130-a631-643230663339/-/format/webp/IMG_3444.jpg.webp" alt="VIP зона клуба Берлога" loading="lazy" width="600" height="450">
                     <div class="gallery-caption">ВИП зона</div>
                 </div>
             </div>
@@ -1313,7 +1371,7 @@
             <p class="subhead">Дневные и ночные пакеты</p>
             
             <div class="tariffs-wrapper">
-                <button class="slider-btn prev-btn" id="prevTariffBtn"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-btn prev-btn" id="prevTariffBtn" aria-label="Предыдущие тарифы"><i class="fas fa-chevron-left"></i></button>
                 <div class="tariffs-slider">
                     <div class="tariffs-track" id="tariffsTrack">
                         <div class="tariff-card">
@@ -1346,7 +1404,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="slider-btn next-btn" id="nextTariffBtn"><i class="fas fa-chevron-right"></i></button>
+                <button class="slider-btn next-btn" id="nextTariffBtn" aria-label="Следующие тарифы"><i class="fas fa-chevron-right"></i></button>
             </div>
         </section>
 
@@ -1355,12 +1413,12 @@
             <h2>Игры</h2>
             <p class="subhead">Более 500 популярных тайтлов</p>
             <div class="games-grid">
-                <div class="game-item"><img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80" alt="Dota 2"><span>DOTA 2</span></div>
-                <div class="game-item"><img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80" alt="CS 2"><span>CS 2</span></div>
-                <div class="game-item"><img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=600&q=80" alt="Fortnite"><span>FORTNITE</span></div>
-                <div class="game-item"><img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=600&q=80" alt="Minecraft"><span>MINECRAFT</span></div>
-                <div class="game-item"><img src="https://images.unsplash.com/photo-1614294148960-9aa740632a87?auto=format&fit=crop&w=600&q=80" alt="Valorant"><span>VALORANT</span></div>
-                <div class="game-item"><img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&w=600&q=80" alt="Apex"><span>APEX</span></div>
+                <div class="game-item"><img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80" alt="Dota 2 в клубе" loading="lazy"><span>DOTA 2</span></div>
+                <div class="game-item"><img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80" alt="CS 2 на мощных ПК" loading="lazy"><span>CS 2</span></div>
+                <div class="game-item"><img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=600&q=80" alt="Fortnite в Берлоге" loading="lazy"><span>FORTNITE</span></div>
+                <div class="game-item"><img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=600&q=80" alt="Minecraft" loading="lazy"><span>MINECRAFT</span></div>
+                <div class="game-item"><img src="https://images.unsplash.com/photo-1614294148960-9aa740632a87?auto=format&fit=crop&w=600&q=80" alt="Valorant" loading="lazy"><span>VALORANT</span></div>
+                <div class="game-item"><img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&w=600&q=80" alt="Apex Legends" loading="lazy"><span>APEX</span></div>
             </div>
         </section>
 
@@ -1370,19 +1428,19 @@
             <p class="subhead">Ответы на частые вопросы</p>
             
             <div class="faq-item">
-                <div class="faq-question">Скидки для студентов? <i class="fas fa-plus"></i></div>
+                <div class="faq-question">Скидки для студентов? <i class="fas fa-plus" aria-hidden="true"></i></div>
                 <div class="faq-answer">Да, 10% в будни с 10:00 до 18:00 по студенческому.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">Можно со своей едой? <i class="fas fa-plus"></i></div>
+                <div class="faq-question">Можно со своей едой? <i class="fas fa-plus" aria-hidden="true"></i></div>
                 <div class="faq-answer">Можно, но у нас есть снэк-зона с ценами ниже средних.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">Бронь для команды? <i class="fas fa-plus"></i></div>
+                <div class="faq-question">Бронь для команды? <i class="fas fa-plus" aria-hidden="true"></i></div>
                 <div class="faq-answer">Оставьте заявку ниже. Для групп от 5 человек скидка 15%.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">Работаете ночью? <i class="fas fa-plus"></i></div>
+                <div class="faq-question">Работаете ночью? <i class="fas fa-plus" aria-hidden="true"></i></div>
                 <div class="faq-answer">24/7, без выходных. Приходите в любое время.</div>
             </div>
         </section>
@@ -1392,11 +1450,11 @@
             <div class="booking-section">
                 <h2 style="border-left: none; text-align: center; padding-left: 0;">Забронировать</h2>
                 <p style="text-align: center; color: var(--text-soft);">Оставьте заявку — мы перезвоним через 5 минут</p>
-                <form class="booking-form" id="bookingForm" onsubmit="event.preventDefault(); alert('Заявка отправлена!');">
-                    <div class="input-group"><span>Имя</span><input type="text" placeholder="Медведь" required></div>
-                    <div class="input-group"><span>+7</span><input type="tel" placeholder="(000) 000-00-00" required></div>
-                    <div class="input-group"><span>ПК</span><input type="text" placeholder="Стандарт / Буткемп / VIP"></div>
-                    <button type="submit" class="btn" style="justify-content: center;">Забронировать <i class="fas fa-paw"></i></button>
+                <form class="booking-form" id="bookingForm" action="#" method="post" onsubmit="event.preventDefault(); alert('Заявка отправлена!');">
+                    <div class="input-group"><span>Имя</span><input type="text" placeholder="Медведь" name="name" required aria-label="Ваше имя"></div>
+                    <div class="input-group"><span>+7</span><input type="tel" placeholder="(000) 000-00-00" name="phone" required aria-label="Номер телефона"></div>
+                    <div class="input-group"><span>ПК</span><input type="text" placeholder="Стандарт / Буткемп / VIP" name="pc_type" aria-label="Желаемая конфигурация"></div>
+                    <button type="submit" class="btn" style="justify-content: center;">Забронировать <i class="fas fa-paw" aria-hidden="true"></i></button>
                 </form>
             </div>
         </section>
@@ -1404,9 +1462,9 @@
         <!-- КАРТА -->
         <section id="map">
             <h2>Где нас искать</h2>
-            <p class="subhead">ул. Мечникова, 31/106</p>
+            <p class="subhead">Ростов-на-Дону, ул. Мечникова, 31/106</p>
             <div class="map">
-                <iframe src="https://yandex.ru/map-widget/v1/?lang=ru_RU&scroll=true&source=constructor-api&um=constructor%3A2c9224ddcfa49014c9335334c320f10ac69767347fde82b34938be5374693fb5" allowfullscreen="true" loading="lazy"></iframe>
+                <iframe src="https://yandex.ru/map-widget/v1/?lang=ru_RU&scroll=true&source=constructor-api&um=constructor%3A2c9224ddcfa49014c9335334c320f10ac69767347fde82b34938be5374693fb5" allowfullscreen="true" loading="lazy" title="Карта проезда к компьютерному клубу Берлога"></iframe>
             </div>
         </section>
 
@@ -1416,20 +1474,20 @@
             <div class="footer-grid">
                 <div>
                     <div class="footer-logo">
-                        <img src="https://static.tildacdn.com/tild3735-6135-4337-a666-613139383237/Group_1321315100.svg" alt="Берлога" class="footer-logo-img">
+                        <img src="https://static.tildacdn.com/tild3735-6135-4337-a666-613139383237/Group_1321315100.svg" alt="Берлога" class="footer-logo-img" width="42" height="42">
                         БЕРЛОГА
                     </div>
-                    <p>Компьютерный клуб</p>
+                    <p>Компьютерный клуб в Ростове-на-Дону</p>
                 </div>
                 <div class="footer-info">
-                    <p><i class="fas fa-phone-alt"></i> +7 (495) 123-45-67</p>
-                    <p><i class="fas fa-envelope"></i> info@berloga.ru</p>
-                    <p><i class="fas fa-clock"></i> 24/7</p>
+                    <p><i class="fas fa-phone-alt" aria-hidden="true"></i> <a href="tel:+74951234567" style="color: inherit; text-decoration: none;">+7 (495) 123-45-67</a></p>
+                    <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:info@berloga.ru" style="color: inherit; text-decoration: none;">info@berloga.ru</a></p>
+                    <p><i class="fas fa-clock" aria-hidden="true"></i> 24/7</p>
                 </div>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-vk"></i></a>
-                    <a href="#"><i class="fab fa-telegram"></i></a>
-                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <a href="https://vk.com/berloga_rostov" target="_blank" rel="noopener noreferrer" aria-label="VK"><i class="fab fa-vk"></i></a>
+                    <a href="https://t.me/berloga_rostov" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="https://discord.gg/berloga" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i class="fab fa-discord"></i></a>
                 </div>
             </div>
         </section>
@@ -1437,7 +1495,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p style="text-align: center; color: var(--text-muted);">© 2025 Берлога. Все права защищены</p>
+            <p style="text-align: center; color: var(--text-muted);">© 2025 Берлога. Все права защищены. Компьютерный клуб в Ростове-на-Дону.</p>
         </div>
     </footer>
 
@@ -1509,8 +1567,8 @@
                 
                 if (isMobile) {
                     // Мобильный режим: скрываем кнопки, убираем трансформацию
-                    prevBtn.style.display = 'none';
-                    nextBtn.style.display = 'none';
+                    if (prevBtn) prevBtn.style.display = 'none';
+                    if (nextBtn) nextBtn.style.display = 'none';
                     track.style.transform = 'none';
                     track.style.transition = 'none';
                     return;
@@ -1547,7 +1605,7 @@
                     }
                 }
 
-                // Удаляем старые обработчики и вешаем новые
+                // Удаляем старые обработчики и вешаем новые (чтобы избежать дублей)
                 const newPrev = prevBtn.cloneNode(true);
                 const newNext = nextBtn.cloneNode(true);
                 prevBtn.parentNode.replaceChild(newPrev, prevBtn);
