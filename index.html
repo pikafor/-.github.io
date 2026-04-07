@@ -764,6 +764,58 @@
             .tariff-card { flex: 0 0 280px; scroll-snap-align: start; }
             .slider-btn { display: none; }
         }
+        /* Подсказка "листайте" – по умолчанию скрыта */
+        .swipe-hint {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 15px;
+            font-size: 13px;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        .swipe-hint i {
+            font-size: 14px;
+            animation: swipeBounce 1.4s infinite ease-in-out;
+        }
+
+        @keyframes swipeBounce {
+            0% { transform: translateX(0); opacity: 0.5; }
+            50% { transform: translateX(5px); opacity: 1; }
+            100% { transform: translateX(0); opacity: 0.5; }
+        }
+
+        /* На мобильных показываем подсказку и добавляем маску-намёк, что справа есть ещё карточки */
+        @media (max-width: 768px) {
+            .swipe-hint {
+                display: flex;
+            }
+
+            /* Градиентная маска: правый край становится прозрачным – видно, что можно листать */
+            .tariffs-slider {
+                mask-image: linear-gradient(to right, black 85%, transparent 98%);
+                -webkit-mask-image: linear-gradient(to right, black 85%, transparent 98%);
+            }
+
+            /* Небольшая тень в конце контейнера для усиления эффекта (опционально) */
+            .tariffs-wrapper {
+                position: relative;
+            }
+            .tariffs-wrapper::after {
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                width: 40px;
+                background: linear-gradient(to left, rgba(0,0,0,0.6), transparent);
+                pointer-events: none;
+                z-index: 5;
+                border-radius: 0 16px 16px 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -959,6 +1011,9 @@
                     </div>
                 </div>
                 <button class="slider-btn next-btn" id="nextTariffBtn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="swipe-hint">
+                <i class="fas fa-chevron-left"></i> листайте <i class="fas fa-chevron-right"></i>
             </div>
         </section>
 
